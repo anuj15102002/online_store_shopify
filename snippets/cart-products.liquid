@@ -179,7 +179,9 @@
                           <div class="cart-items__properties">
                             <dt>{{ property.first }}:</dt>
                             <dd>
-                              {%- if property.last contains '/uploads/' -%}
+                              {%- if property.first == 'Logo' and property.last contains 'data:image' -%}
+                                <img src="{{ property.last }}" alt="Uploaded Logo" style="max-width:80px; max-height:80px; border:1px solid #eee; display:block; margin-top:0.5em;" />
+                              {%- elsif property.last contains '/uploads/' -%}
                                 <a href="{{ property.last }}">{{ property.last | split: '/' | last }}</a>
                               {%- else -%}
                                 {{ property.last }}
